@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{titulo}}</p>
+    <p>{{saudacao()}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', //id de quem será selecionado 
+        data: {
+            titulo: "Usando VueJs"
+        }, //atributos que ficarão no html
+        methods:{ //metodos executados no html
+            saudacao(){ // poderia ser: saudacao:function(){
+                return this.titulo
+            }
+        }
+    })
+</script>

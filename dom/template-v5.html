@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{titulo}}</p>
+    <p>{{saudacao()}}</p>
+    <!-- <a href="{{link}}">Google</a> Não funciona -->
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', //id de quem será selecionado 
+        data: {
+            titulo: "Usando VueJs",
+            link: 'http://google.com.br'
+        }, //atributos que ficarão no html
+        methods: { //metodos executados no html
+            saudacao() { // poderia ser: saudacao:function()
+                /* this: representa a instancia do vue. esse é o contexto */
+                this.titulo = 'Bom dia!'
+                return this.titulo
+            }
+        }
+    })
+</script>

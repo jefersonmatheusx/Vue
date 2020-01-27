@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{titulo}}</p>
+    <p>{{saudacao()}}</p>
+    <!-- <a href="{{link}}">Google</a> Não funciona -->
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <!-- <p> {{linkHtml}} </p> Isso não vai gerar uma tag -->
+    <p v-html="linkHtml"></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', //id de quem será selecionado 
+        data: {
+            titulo: "Usando VueJs",
+            link: 'http://google.com.br',
+            linkHtml: '<a href="http://google.com.br">Google</a>'
+        }, //atributos que ficarão no html
+        methods: { //metodos executados no html
+            saudacao() { // poderia ser: saudacao:function()
+                /* this: representa a instancia do vue. esse é o contexto */
+                this.titulo = 'Bom dia!'
+                return this.titulo
+            }
+        }
+    })
+</script>
