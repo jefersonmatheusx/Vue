@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{contador}}</p>
+    <button v-on:click="somar(5,$event)">Somar 1</button>
+    <p v-on:mousemove="atualizarXY"> Mouse {{x}} e {{y}}
+        <span v-on:mouseMove.stop>IMPEDIR PROPAGAÇÃO DO EVENTO</span>
+    </p>
+    <a v-on:click.prevent href="www.google.com"> google</a>
+    <hr>
+    <input type="text" v-on:keyup.enter.alt='exibirAlerta'>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(passo) {
+                this.contador += passo
+            },
+            atualizarXY(e) {
+                console.log(e)
+                this.x = e.clientX;
+                this.y = e.clientY;
+            },
+            // parar(e) { não precisa do metodo pois usamos um modificador de evento STOP
+            //     e.stopPropagation();
+            // },
+            exibirAlerta(e){
+                alert('apertado a tecla ', e )
+            }
+
+        }
+    })
+</script>

@@ -63,6 +63,7 @@ this.foo; // não precisa utilizar o data
 * **v-once:** O valor interpolado será lido uma única vez, e não irá ser monitorado em caso de alteração deste dado.
 * **v-html:** Utilizado para interpretar variaveis que possuam um html. (é até uma medida de segurança do vue não permitir que elementos html seja introduzidos ao código sem essa diretiva )
 
+  
 ```html
 <p v-html="linkHtml"></p>
 ```
@@ -71,6 +72,7 @@ this.foo; // não precisa utilizar o data
 
 * **v-bind:[propriedade]=:**  Utilizado para fazer o bind do Vue criando uma propriedade dentro de alguma tag html.
 
+  
 ```html
 <a v-bind:href="link">Google</a>
 ```  
@@ -80,3 +82,27 @@ Ou
 ```html
 <a v-bind:teste="link">Google</a>
 ```
+
+* **v-on:** Faz conexão com os eventos do html.
+  
+```html
+ <button v-on:click="somar">Somar 1</button>
+```
+
+> Todo evento envia um parametro de evento. Por exemplo no clique existe o MouseEvent sendo enviado. Bem como você pode passar seus próprios parametros, isso fará com que o evento não seja passado automaticamente, logo você deve passar o evento **$event** para que o Vue interprete esse parâmetro.
+>
+> ```html
+> <button v-on:click="somar(5,$event)">Somar 1</button>
+>  ```
+
+#### Eventos e seus modificadore
+
+alguns eventos utilizados no **v-on** podem ser modificados facilmente no próprio html. 
+
+- mouse
+  - .stop: impede a propagação do movimento;
+- click
+  - .prevent: age como o preventDefault
+- keyUp
+  - .[tecla] : .enter por exemplo
+    - .[tecla].[tecla] :  concatenar várias teclas, enter.alt por exemplo alt+enter
