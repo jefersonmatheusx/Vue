@@ -42,6 +42,7 @@ new Vue({
 * `<p>{{titulo}}</p>`: é interpretado o texto.  
 * `<p>{{doThing()}}</p>`: é interpretado o função que **retorna string** (deve retornar string).
 obs: acontece uma conversão para string nesse caso
+* `<p>{{contador * 2}}</p>` : Pode acontecer calculos e processamentos simples de dados dentro de um bind, até mesmo condicional `<p>{{contador > 0 ? "maior": "menor"}}</p>`
 
 * Interpolação não costuma funcionar dentro de atributos de tags, como por exemplo o **href** de uma tag `<a>`. Para isso deve ser utilizado o **v-bind:href=**.
 * **Usando o _this_**
@@ -106,3 +107,12 @@ alguns eventos utilizados no **v-on** podem ser modificados facilmente no própr
 - keyUp
   - .[tecla] : .enter por exemplo
     - .[tecla].[tecla] :  concatenar várias teclas, enter.alt por exemplo alt+enter
+
+* **v-model:** Faz o "Two Way Data Bind" 
+  
+  ```html
+  <!-- EM VEZ DISSO... <input type="text" v-bind:value="titulo"
+        v-on:input='titulo = $event.target.value'> 
+        FAZEMOS ISSO -->
+    <input type="text" v-model="titulo"/>
+  ```
