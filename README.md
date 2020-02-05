@@ -46,6 +46,8 @@ Dados computados ou computed properties no inglês, traduzidos como “dados” 
 
 Dá para se pensar em Computed Properties como propriedades onde se definem apenas os getters (e opcionalmente, setters) para algo. Não há um valor registrado na propriedade, e sim uma função getter que pode ou não busca o valor desejado em outros lugares. Uma das vantagens de usar Computed Properties no Vue.JS é que o Vue faz cache do resultado do getter, e invalida a cache caso as dependências do getter sejam alteradas.
 
+> **Minhas considerações sobre:**  Quando acontece qualquer mudança no template, existindo um bind {{funcaoX()}} no html, mesmo que a mudança não afete a funcaoX, a funcaoX será executada. 
+
 * **Cache de computed vs. Métodos**
 Podemos sempre obter o mesmo resultado chamando um método ao ivés de um computado. No entanto a diferença é que dados computados são cacheados de acordo com suas dependências reativas.
 
