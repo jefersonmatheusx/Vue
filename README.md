@@ -61,6 +61,7 @@ this.foo; // não precisa utilizar o data
 > Diretivas são acessadas em nosso html pelo Vue, normalmente começam com a letra *V-*. Cada uma tem uma respectiva utilidade.
 
 * **v-once:** O valor interpolado será lido uma única vez, e não irá ser monitorado em caso de alteração deste dado.
+
 * **v-html:** Utilizado para interpretar variaveis que possuam um html. (é até uma medida de segurança do vue não permitir que elementos html seja introduzidos ao código sem essa diretiva )
 
   
@@ -83,8 +84,8 @@ Ou
 <a v-bind:teste="link">Google</a>
 ```
 
-* **v-on:** Faz conexão com os eventos do html.
-  
+* **v-on:[evento]:**  Representa um evento específico, espera um evento (como click, hover, keypress etc.)
+ 
 ```html
  <button v-on:click="somar">Somar 1</button>
 ```
