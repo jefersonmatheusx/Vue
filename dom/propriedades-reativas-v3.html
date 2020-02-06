@@ -1,0 +1,54 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="resultado=1">Aumentar</button>
+    <button v-on:click="diminuir">Diminuir</button>
+
+    <button v-on:click="contador2++">Aumentar2</button>
+    <button v-on:click="teste++">teste</button>
+    <p>Contador: {{contador}}</p>
+    <p>Contador: {{contador2}}</p>
+    <p>Resultado: {{resultado}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            contador: 0,
+            contador2: 0,
+
+        },
+        methods: {
+            aumentar() {
+                this.contador++
+            },
+            diminuir() {
+                this.contador--
+            },
+
+        },
+        computed: {
+            resultado: {
+                set(param) {
+                    console.log('chamou o evento ')
+                    this.contador += param;
+                },
+                get() {
+                    return this.contador >= 5 ?
+                        "Maior ou igual a 5" :
+                        "Menor que 5";
+                }
+            }
+        }, watch: {
+            contador(novo, antigo) { // você aponta variaveis do data para serem observadas.
+            // propriedades computadas são sincronas 
+          //watch você consegue fazer ações assíncronas    
+                console.log(novo, ' - ', antigo);
+                setTimeout(() => {
+                    this.contador = 0;
+                }, 2000)
+            }
+        }
+    })
+</script>

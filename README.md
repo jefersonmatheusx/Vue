@@ -17,6 +17,11 @@ new Vue({
     computed:{
         // metodos que não são chamados como função em sem html 
         // Usado para qualquer lógica mais complexa dentro do template
+    },
+    watch:{
+        // Você aponta variaveis do data para serem observadas.
+        // Propriedades computadas são sincronas.
+        // Watch você consegue fazer ações assíncronas.
     }
     methods:{//metodos que serão executados
         foo2(){// ou foo2: function()
@@ -48,10 +53,14 @@ Dá para se pensar em Computed Properties como propriedades onde se definem apen
 
 > **Minhas considerações sobre:**  Quando acontece qualquer mudança no template, existindo um bind {{funcaoX()}} no html, mesmo que a mudança não afete a funcaoX, a funcaoX será executada. 
 
-* **Cache de computed vs. Métodos**
-Podemos sempre obter o mesmo resultado chamando um método ao ivés de um computado. No entanto a diferença é que dados computados são cacheados de acordo com suas dependências reativas.
+> **Cache de computed vs. Métodos**
+> Podemos sempre obter o mesmo resultado chamando um método ao ivés de um computado. No entanto > a diferença é que dados computados são cacheados de acordo com suas dependências reativas.
 
-Um dado computado somente será reavaliado quando alguma de suas dependências for alterada.
+> Um dado computado somente será reavaliado quando alguma de suas dependências for alterada.
+
+* **Watch**
+
+Watch serve para vigiar as variáveis do Data, mostrando valor novo e o velho, e pode chamar funções asíncronas ou alterar outras propriedades ao ter seu gatilho desparado. Bem como Computed são expressões síncronas.
 
 * **Interpolaçao**
 
@@ -63,6 +72,7 @@ obs: acontece uma conversão para string nesse caso
 * `<p>{{contador * 2}}</p>` : Pode acontecer calculos e processamentos simples de dados dentro de um bind, até mesmo condicional `<p>{{contador > 0 ? "maior": "menor"}}</p>`
 
 * Interpolação não costuma funcionar dentro de atributos de tags, como por exemplo o **href** de uma tag `<a>`. Para isso deve ser utilizado o **v-bind:href=**.
+  
 * **Usando o _this_**
 
 O **this** no contexto do Vue.js representa a própria instância do Bue
@@ -79,9 +89,27 @@ this.foo; // não precisa utilizar o data
 
 > Diretivas são acessadas em nosso html pelo Vue, normalmente começam com a letra *V-*. Cada uma tem uma respectiva utilidade.
 
-* **v-once:** O valor interpolado será lido uma única vez, e não irá ser monitorado em caso de alteração deste dado.
 
-* **v-html:** Utilizado para interpretar variaveis que possuam um html. (é até uma medida de segurança do vue não permitir que elementos html seja introduzidos ao código sem essa diretiva )
+* **Sintaxe Reduzida**
+
+É uma forma de reduzir as diretivas no html.
+
+> **@** = propriedades de **v-on[evento]** 
+>
+> ```html
+> <button @click="somar">Somar 1</button>
+> ```
+  
+>
+> **:** = propriedade **v-bind[propriedade]** 
+> ```html
+>    <input type="text" :value="contador">
+> ```
+
+
+* **v-once=** O valor interpolado será lido uma única vez, e não irá ser monitorado em caso de alteração deste dado.
+
+* **v-html=** Utilizado para interpretar variaveis que possuam um html. (é até uma medida de segurança do vue não permitir que elementos html seja introduzidos ao código sem essa diretiva )
 
   
 ```html
@@ -90,7 +118,7 @@ this.foo; // não precisa utilizar o data
 
 > Existe um ataque: chamado **XSS (cROSS-SITE sCRIPTING)**, que é quando um usuário insere um script malicioso dentro de um campo de entrada e o site interpreta e executa esse código.
 
-* **v-bind:[propriedade]=:**  Utilizado para fazer o bind do Vue criando uma propriedade dentro de alguma tag html.
+* **v-bind:[propriedade]=**  Utilizado para fazer o bind do Vue criando uma propriedade dentro de alguma tag html.
 
   
 ```html
@@ -102,6 +130,28 @@ Ou
 ```html
 <a v-bind:teste="link">Google</a>
 ```
+
+- **[propriedades]**
+  - **:class=**  {"chave": valor(booleano} --> aplica a classe de acordo com o valor booleano
+
+     ```html
+     <div class="demo" :class="{'cor-1':aplicarC1, 'cor-2': !aplicarC1}" @click="aplicarC1 = !aplicarC1"></div>
+     ```
+
+    > **{}** retorna chave valor (booleano) **{'nome_classe":true}**
+    > **[]** retorna um array de string (classes) ou de chave valor **['girar',{chave: valor}]**
+
+    ```html
+     <div class="demo" :class="[classeCSS, 'girar']"></div>
+     <div class="demo" :class="[classeCSS, {'girar':variavelBooleana}]"></div>
+         <input type="text" v-model="classeCSS">
+    ```
+
+  - **:style=** a propriedade style irá aplicar estilos diretamente inline sem depender de classes css e funcionam com atributos {chave : "valor" } sendo que a chave deve ser uma propriedade css válida.
+
+    ```html
+    <div class="demo" :style='[meuEstilo,{"height":altura, width:altura,border:"4px solid"}]' ></div>
+    ```
 
 * **v-on:[evento]:**  Representa um evento específico, espera um evento (como click, hover, keypress etc.)
  
