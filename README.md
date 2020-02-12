@@ -165,7 +165,7 @@ Ou
 > <button v-on:click="somar(5,$event)">Somar 1</button>
 >  ```
 
-#### Eventos e seus modificadore
+#### Eventos e seus modificadores
 
 alguns eventos utilizados no **v-on** podem ser modificados facilmente no próprio html. 
 
@@ -185,3 +185,9 @@ alguns eventos utilizados no **v-on** podem ser modificados facilmente no própr
         FAZEMOS ISSO -->
     <input type="text" v-model="titulo"/>
   ```
+
+#### Eventos condicionais
+
+* **v-if:[condição]= :** Estrutura condicional do Vue que mostra ou não um elemento no html
+* **v-else:**  funciona quando o elemento anterior é um v-if, se houver um elemento entre eles, não terá o efeito desejado. 
+* 
