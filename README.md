@@ -188,6 +188,7 @@ alguns eventos utilizados no **v-on** podem ser modificados facilmente no própr
 
 #### Eventos condicionais
 
-* **v-if:[condição]= :** Estrutura condicional do Vue que mostra ou não um elemento no html
+* **v-if=[condição] :** Estrutura condicional do Vue que mostra ou não um elemento no html
 * **v-else:**  funciona quando o elemento anterior é um v-if, se houver um elemento entre eles, não terá o efeito desejado. 
+* **v-else-if=[condição] :** Estrutura para inserir várias outras condições e só funciona se estiver antes do **v-else**.
 * 
