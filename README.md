@@ -54,7 +54,7 @@ Dá para se pensar em Computed Properties como propriedades onde se definem apen
 > **Minhas considerações sobre:**  Quando acontece qualquer mudança no template, existindo um bind {{funcaoX()}} no html, mesmo que a mudança não afete a funcaoX, a funcaoX será executada. 
 
 > **Cache de computed vs. Métodos**
-> Podemos sempre obter o mesmo resultado chamando um método ao ivés de um computado. No entanto > a diferença é que dados computados são cacheados de acordo com suas dependências reativas.
+> Podemos sempre obter o mesmo resultado chamando um método ao ivés de um computado. No entantoa diferença é que dados computados são cacheados de acordo com suas dependências reativas.
 
 > Um dado computado somente será reavaliado quando alguma de suas dependências for alterada.
 
@@ -69,7 +69,7 @@ Watch serve para vigiar as variáveis do Data, mostrando valor novo e o velho, e
 * `<p>{{titulo}}</p>`: é interpretado o texto.  
 * `<p>{{doThing()}}</p>`: é interpretado o função que **retorna string** (deve retornar string).
 obs: acontece uma conversão para string nesse caso
-* `<p>{{contador * 2}}</p>` : Pode acontecer calculos e processamentos simples de dados dentro de um bind, até mesmo condicional `<p>{{contador > 0 ? "maior": "menor"}}</p>`
+* `<p>{{contador * 2}}</p>` : Pode acontecer calculos e processamentos simples de dados dentro de um bind, até mesmo condicional `<p>{{contador0 ? "maior": "menor"}}</p>`
 
 * Interpolação não costuma funcionar dentro de atributos de tags, como por exemplo o **href** de uma tag `<a>`. Para isso deve ser utilizado o **v-bind:href=**.
   
@@ -138,8 +138,8 @@ Ou
      <div class="demo" :class="{'cor-1':aplicarC1, 'cor-2': !aplicarC1}" @click="aplicarC1 = !aplicarC1"></div>
      ```
 
-    > **{}** retorna chave valor (booleano) **{'nome_classe":true}**
-    > **[]** retorna um array de string (classes) ou de chave valor **['girar',{chave: valor}]**
+   **{}** retorna chave valor (booleano) **{'nome_classe":true}**
+   **[]** retorna um array de string (classes) ou de chave valor **['girar',{chave: valor}]**
 
     ```html
      <div class="demo" :class="[classeCSS, 'girar']"></div>
@@ -187,8 +187,65 @@ alguns eventos utilizados no **v-on** podem ser modificados facilmente no própr
   ```
 
 #### Eventos condicionais
+  
+    OBS: os respectivos itens (v-if, v-else, v-else-if), removem o elemento da DOM, não é nenhum css, ele retira o item da página de verdade.
+    Para apenas esconder elementos sem se preocupar se está sendo mostrado no html utilizamos v-show.
 
 * **v-if=[condição] :** Estrutura condicional do Vue que mostra ou não um elemento no html
 * **v-else:**  funciona quando o elemento anterior é um v-if, se houver um elemento entre eles, não terá o efeito desejado. 
 * **v-else-if=[condição] :** Estrutura para inserir várias outras condições e só funciona se estiver antes do **v-else**.
-* 
+  
+ Utilizar a tag `<template>` como o **v-if, v-show ou v-for** para agrupar vários componentes, não será mostrado no html como uma div que envolve o conteúdo.
+ ``` html
+ <template v-if="logado">
+  <p> Usuário logado </p>
+  <p>Nome: {{nome}} </p>
+ </template>
+ ```
+
+* **v-show=[condição]:** para mostrar elementos ou esconde-los aplicando css *display*.
+
+#### Listas
+
+* **v-for="(cor, i ) in cores":** Laço de repetição no template, utilizando o número do índex.
+  parametros (valor, index)
+  
+  ```html
+  <ul>
+    <li v-for="(cor,i) in cores"> {{i}}) {{cor}} </li>
+  </ul>
+  ```
+
+  ```html
+  <ul>
+    <li v-for="(p,i) in pessoas"> {{p.nome}}, {{p.idade}} </li><!-- v-for="p in pessoas" também é valido -->
+  </ul>
+  ```
+
+
+* **Iterando objetos**
+ O **v-for** também pode ser utilizado para iterar literalmente objetos (chave: valor), através do uso do **v-for** dentro de um item de um objeto.
+ parametros: (valor, chave, index)
+ ```html
+ <ul>
+   <li v-for="(pesssoa,i) in pessoas"> <!-- v-for="p in pessoas" também é valido -->
+     <p v-for="(valor, chave, j) in pessoa"> {{chave}} = {{valor}} </p>
+   </li>
+ </ul>
+  
+  ```
+
+* **Iterando números**: A iteração também obedece um comando de numeração, repetindo a quantidade de vezes inserida.
+  **Começando de um, (já que o índex é que começa de 0**
+  ```html
+  <span v-for="n in 10"> {{n}} </span> <!-- fará o 10 repetições -->
+  
+  ```
+
+* **Atualizando listas e usando :key**
+  
+  Quando temos uma lista e precisamos altera-la ou mudar a orde dos seus itens, é interessante darmos uma dica de identificação para o Vue para que ele aja mais rapidamente ao identificar o item que foi mudado, exlcuído ou adicionado. 
+  para isso nós utilizamos o item **:key=[idendificador]**
+
+  Por exemplo em uma lista de produtos, seria interessante utilizar a id do produto como Key. 
+  
