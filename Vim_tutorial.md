@@ -5,13 +5,13 @@
 + **Enter** : conclui comandos na tela normal. 
 + **Ctrl+ R** : desfazer as anulações (u ou U);
 + **Shift+G** : ir para a ultima linha;
-+ **[numero Linha]+Shift+G: ir para determinada linha;
++ **[numero Linha]+Shift+G**: ir para determinada linha;
 + **Ctrl+G** : ver em qual linha está;
 
 ## Caracteres
 
 + **hjkl** --> teclas de direção j(baixo), k (cima) e as laterais h e l.
-+ ** : ** --> inicio dos comandos para o vim. 
++ **:** --> inicio dos comandos para o vim. 
 
 > exemplo: :[comando]
 
