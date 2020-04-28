@@ -1,4 +1,4 @@
-# Innstâncias Vue
+# Instâncias Vue
 
 ## Multiplas instâncias Vue
 
@@ -48,3 +48,13 @@
 ## $
 
 * Muitos elementos internos do Vue começam com **$**
+  
+  ``` js
+  $el: (...)
+  $data: Object
+      titulo: (...)
+  ```
+
+> obs : **vm.nome** ou **vm.$data.nome** mostra o mesmo valor
+
+* **$ref** - pode referenciar algum item do html, não precisa usar o (:) para bindar e é uma propridade do vue.
