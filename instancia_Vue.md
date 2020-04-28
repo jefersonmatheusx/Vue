@@ -1,4 +1,6 @@
-# Multiplas instâncias Vue
+# Innstâncias Vue
+
+## Multiplas instâncias Vue
 
 * Uma propriedade e uma instância Vue não consegue enxergar a outra, a não ser que declaremos em uma variavel:
   
@@ -27,5 +29,22 @@
     }
   })``` 
 
-> dessa forma conseguimos acessar dados uma da outra. 
-> 
+> dessa forma conseguimos acessar dados uma da outra.
+>
+> obs: vm = view model
+
+## Propriedades reativas 
+
+* Uma propridade é responsiva quando ela está presente no objeto do vue quando ele é criado, referenciado na instância. 
+
+>  **vm.novaInfo = 'Teste'** --> não seria reativo se o parametro novaInfo não tenha sido referenciado no objeto vm anteriormente.
+
+## Padrao Observer 
+
+* Padrão de projeto mais utilizado da web
+
+
+
+## $
+
+* Muitos elementos internos do Vue começam com **$**
