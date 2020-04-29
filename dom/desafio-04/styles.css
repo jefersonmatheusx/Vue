@@ -16,6 +16,9 @@
 .perigo{
 	background-color: red;
 }
+.legal{
+	background-color:green
+}
 .quadrado { 
 	width: 100px;
 	height: 100px;

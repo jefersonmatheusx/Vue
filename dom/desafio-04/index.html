@@ -29,9 +29,9 @@
     outra classe usando o valor true/false (crie classes CSS de exemplo). -->
 	<h2>#04</h2>
 	<div>
-		<input type="text" v-model=classe4>
+		<input type="text" placeholder='classe css' v-model=classe4>
 		<input type="text" @input="setPerigo">
-		<div :class="[classe4,{perigo}]"></div>
+		<div :class="[classe4,{setPerigo}]"></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
