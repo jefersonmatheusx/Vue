@@ -136,3 +136,36 @@ Vue.component('comp',{
 ```
 
 > Diferente da implementação da instância do Vue, o parametro **data** dentro do componente deixa de ser um parametro e vira uma função com retorno de um objeto literal.
+
+## Vue e DOM 
+
+O Vue cria um DOM virtual que será replicado para o verdadeiro DOM, por isso se alterarmos o DOM ele não é passado para o DOM virtual e as alterações não serão de fato reais para o Vue. 
+
+## Ciclo de vida do Vue
+
+* instancia o Vue
+
+* **beforeCreated:** é chamado antes de criar a própria instancia do Vue.
+  * Logo após isso, o Vue é iniciado fazendo as injeções de dependência e reatividade   
+* **created:** faz verificações para montar nossa instância (verifica se tem $evl: salva o template, $template e chamar o $mount etc.)
+  * _Se tem template_ ele compila o template e chã a funço deã renderização
+  * _Se não tem template_ Compila os $el's do html de fora como um template 
+* **beforeMount:** antes de aplicar o template na DOM (antes de montar na DOM - mount) 
+* **mounted:** Processo de montar o DOM, aplicar o template na DOM 
+* **ciclo de atualização:** Sempre que for necessário atualizar um dado da DOM irá verificar 
+  * **beforeUpdate**:quando os dados mudam 
+  * **updated**: foi atualizado
+
+### vm.$destroy - ciclo de vida
+
+Função que irá destruir a instância impedindo que haja modificações de forma reativa
+
+* **beforeDestroy:** antes de destruir todas as funcionalidades do Vue
+* **destroyed:** o template fica na forma que foi deixado antes de apagar, mas não existe mais instância do vue.
+
+> pode ser chamado no html 
+>  ```html
+>  <button @click="$destroy()">Destruir</button>
+> ```
+> '   
+
