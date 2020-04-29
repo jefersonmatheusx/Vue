@@ -10,7 +10,7 @@ new Vue({})
 
 ```js
 new Vue({
-    el: '#id' ,//elemento 
+    el: '#id' ,//elemento ou componente
     data:{// objeto de dados para o html 
         foo: "bar"
     },

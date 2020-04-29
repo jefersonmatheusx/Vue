@@ -1,0 +1,76 @@
+<meta charset="UTF-8" />
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <comp></comp>
+  <comp></comp>
+  <comp></comp>
+  <comp></comp>
+
+  <!-- 
+  NÃO VAI IMPRIMIR VÁRIOS, só um  se eu duplicar esse componente
+    <comp></comp>
+    <comp></comp>
+    <comp></comp>
+ 
+ 
+    se for feito assim 
+        el:'comp',
+    template: `
+  -->
+
+</div>
+
+<script>
+  /**
+  const dados = { 
+        aula: 'Aula: Montando Instância Vue',
+        modulo: 'Módulo: Instância do Vue'
+      }
+       * se eu fizer assim os dados não ficam globais.
+       * 
+       * substitua o data por isso. e veja que as alterações não ficam independentes, pois todos irão apontar para o mesmo dado 
+       * data:  ()=>  dados ,
+      */
+
+
+
+  // registrar um componente de forma global dentro do Vue, possibilitando ter vários
+  // Vue.component('comp',{
+  //   template:'<h1>Componente</h1>'
+  // })
+
+
+  Vue.component('comp', {
+    template: `
+    <div>
+      <h2 >
+      {{aula}} 
+      </h2>
+      <h2>
+        {{modulo}}
+      </h2>
+      <button @click="alterarAula">Alterar aula</button>
+      <button @click="alterarModulo">Alterar Módulo</button>
+    </div>
+    `,
+    data: () => {
+      return {
+        aula: 'Aula: Montando Instância Vue',
+        modulo: 'Módulo: Instância do Vue'
+      }
+    },
+    methods: {
+      alterarAula() {
+        this.aula += '#'
+      },
+      alterarModulo() {
+        this.modulo += '#'
+      }
+    }
+  })
+  const vm = new Vue({
+    el: '#app',
+  })
+
+</script>
