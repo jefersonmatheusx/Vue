@@ -1,28 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    {{titulo}}
+  <button @click="titulo += '##'">alterar</button>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+  // objeto que corresponde ao vue instance a ser exportado.
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data:()=>{ return{titulo:'TEste Data usando Vue.js' }}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#app{
+  background: chocolate;
+  color:#fff
 }
 </style>

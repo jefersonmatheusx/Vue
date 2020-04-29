@@ -11,6 +11,29 @@
 * vue create 
   * Usar preset ou usar uma configuração personalizada (adicionando plugins ) podendo salva-lo como preset e usar ele outra vez. 
 * Desenvolvimento e Build
-*  Adicionar Plugins 
+* Adicionar Plugins 
    *  vue add @vue/nome-plugin
   
+## Estrutura
+
+### pasta index.html
+
+* É a unica pasta **html** no projeto e é nela que será injetado toda a aplicação
+
+### main.js 
+
+* Nela é instanciado o objeto Vue
+
+```js
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+```
+> poderia ser feito também como abaixo 
+
+```js
+new Vue({
+    el:'#app',
+  render: h => h(App),
+})
+```
