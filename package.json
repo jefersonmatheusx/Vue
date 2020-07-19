@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "vue-cli-plugin-electron-builder": "~1.4.6"
+  }
+}
