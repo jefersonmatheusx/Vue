@@ -5,6 +5,7 @@
     <p>{{saudacao()}}</p>
     <!-- <a href="{{link}}">Google</a> Não funciona -->
     <a v-bind:href="link">Google</a>
+    <a :href="link">Google</a> <!-- também dá certo-->
     <hr>
     <!-- <p> {{linkHtml}} </p> Isso não vai gerar uma tag -->
     <p v-html="linkHtml"></p>

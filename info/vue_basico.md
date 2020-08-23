@@ -15,7 +15,7 @@ new Vue({
         foo: "bar"
     },
     computed:{
-        // metodos que não são chamados como função em sem html 
+        // metodos que não são chamados como função em seu html 
         // Usado para qualquer lógica mais complexa dentro do template
     },
     watch:{
@@ -75,7 +75,7 @@ obs: acontece uma conversão para string nesse caso
   
 * **Usando o _this_**
 
-O **this** no contexto do Vue.js representa a própria instância do Bue
+O **this** no contexto do Vue.js representa a própria instância do vue
 
  Para acessar um dado de **data** dentro do **methods** por exemplo, será necessário o uso do **this**:
 
@@ -118,7 +118,7 @@ this.foo; // não precisa utilizar o data
 
 > Existe um ataque: chamado **XSS (cROSS-SITE sCRIPTING)**, que é quando um usuário insere um script malicioso dentro de um campo de entrada e o site interpreta e executa esse código.
 
-* **v-bind:[propriedade]=**  Utilizado para fazer o bind do Vue criando uma propriedade dentro de alguma tag html.
+* **v-bind:[propriedade]=** Utilizado para fazer o bind do Vue criando uma propriedade dentro de alguma tag html.
 
   
 ```html
@@ -175,7 +175,7 @@ alguns eventos utilizados no **v-on** podem ser modificados facilmente no própr
   - .prevent: age como o preventDefault
 - keyUp
   - .[tecla] : .enter por exemplo
-    - .[tecla].[tecla] :  concatenar várias teclas, enter.alt por exemplo alt+enter
+    - .[tecla].[tecla] :  concatenar várias teclas, .enter.alt por exemplo alt+enter
 
 * **v-model:** Faz o "Two Way Data Bind" 
   
