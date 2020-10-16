@@ -1,3 +1,4 @@
+
 # Vue Client
 
 - Ambiemte de Dev e Build Configurados
@@ -9,12 +10,13 @@
 
 ## Fluxo inicial do Vue
 
-- vue create
+- vue create [nome_do_projeto]
   - Usar preset ou usar uma configuração personalizada (adicionando plugins ) podendo salva-lo como preset e usar ele outra vez.
 - Desenvolvimento e Build
 - Adicionar Plugins
-
   - vue add @vue/nome-plugin
+- Rodar projeto 
+  - npm run serve
 
 ## Estrutura
 
@@ -40,6 +42,21 @@ new Vue({
   render: (h) => h(App),
 })
 ```
+
+## utilização de pastas 
+
+--src
+  |__components
+  | |_templates --> funcionalidades associadas ao template geral da aplicação
+  | |_widgets --> itens que podem ser usadas em várias funcionalidades 
+  | |_user --> components relacionados a usuário
+  |__views --> telas completas que utilizam componentes 
+  |__plugins --> plugins utilizados
+
+## Caminho global (Alias)
+
+- o **@** sgnifica **src**  que é o nosso caminho global 
+  - utilizado para nossas importações para não precisar utilizar a referencia de pontos (., ..)
 
 ## Documentações
 

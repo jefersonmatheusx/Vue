@@ -109,6 +109,28 @@ new Vue({
   },
 })
 ```
+
+### Outra forma de digitar o nome dos componentes 
+
+- Se você importar um componente com CammelCase (iniciado por app) o vue ainda poderá chamar o componente usando o ífem 
+
+  ```html
+  <div id="app2">
+    <app-contador></app-contador>
+  </div>
+  ```
+
+```js
+import contador from 'bla'
+
+new Vue({
+  el: '#app1',
+  components: {
+    appContador: contador,
+  },
+})
+```
+
 ### Em instâncias Vue
 
 Quando for necessário importar um componente individualmente dentro do projeto, poderá apenas importar o componente e declarar o nome da sua tag.
