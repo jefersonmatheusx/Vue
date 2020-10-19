@@ -145,3 +145,6 @@ props:{
 
 - propriedades são case sensitive entre o html e o js
   - se props: ['Nome'] ..... :nome="variável" **não será aceito**
+-se uma prop for um array isso significa que ela foi passada por referência (string e numbers são passadas por valor), logo uma alteração nesse array irá impactar no componente pai (arrays são passados por referência ) agindo de forma destrutiva. 
+  > você pode passar o array com spread  `:usuarios =[...usuarios]`
+  - tente não mexer na referência 
