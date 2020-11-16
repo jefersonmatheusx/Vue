@@ -148,3 +148,73 @@ props:{
 -se uma prop for um array isso significa que ela foi passada por referência (string e numbers são passadas por valor), logo uma alteração nesse array irá impactar no componente pai (arrays são passados por referência ) agindo de forma destrutiva. 
   > você pode passar o array com spread  `:usuarios =[...usuarios]`
   - tente não mexer na referência 
+
+
+## DENTRO DO CORPO DO COMPONENTE  - SLOT 
+
+- **sem nomear:** qualquer elemento será mostrado como slot 
+``` html
+<!-- componente pai -->
+<Citacao>
+    <h1>{{citacoes[indice].autor}}</h1>
+    <p>{{citacoes[indice].texto}} </p>
+    <h6>{{citacoes[indice].fonte}} </h6></Citacao>
+```
+
+```html
+<!-- componente filho -->
+<template>
+    <div class="citacao">
+        <slot></slot>
+    </div>
+</template>
+```
+
+- **nomeado**: você nomeia cada item que irá aparecer no slot 
+  
+```html
+<!-- componente pai -->
+<Citacao>
+    <h1 slot="autor">{{citacoes[indice].autor}}</h1>
+    <p  slot="texto">{{citacoes[indice].texto}} </p>
+    <h6 slot="fonte">{{citacoes[indice].fonte}} </h6>
+</Citacao>
+```
+```html
+<!-- componente filho -->
+<template>
+    <div class="citacao">
+        <slot name="autor"></slot>
+        <slot name="texto"></slot>
+        <slot name="fonte"></slot>
+    </div>
+</template>
+```
+
+- **misto**: slot padrão com nomeados 
+```html 
+<!-- filho  -->
+<template>
+    <div class="citacao">
+        <slot name="autor"></slot>
+        <slot ></slot>
+        <slot name="fonte"></slot>
+    </div>
+</template>
+
+
+```
+
+- **duplicado**: dois slots nomeados iguais ou dois slots padrões 
+
+```html
+  <Citacao>
+    <h1 slot="autor">Autor</h1>
+    <h1 slot="autor">{{citacoes[indice].autor}}</h1>
+    <p  >Citação </p>    <!--  slot sem nome -->
+    <p  >{{citacoes[indice].texto}} </p>
+    <h6 slot="fonte">{{citacoes[indice].fonte}} </h6>
+
+</Citacao>
+
+```
