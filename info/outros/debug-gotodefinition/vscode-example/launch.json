@@ -1,0 +1,49 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "vuejs: chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*",
+        "webpack:///src/*": "${webRoot}/*",
+        "webpack:///*": "*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cordova's Hook Install Plugin",
+      // Path to cordova
+      "program": "/usr/bin/cordova", 
+      // Path to a cordova project onto where we're going to install this plugin
+      "cwd": "${workspaceFolder}/src-cordova",
+      "stopOnEntry": false,
+      "args": ["plugin", "add", "${workspaceRoot}"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cordova's Hook After_Build",
+      // Path to cordova
+      "program": "/usr/lib/node_modules/cordova/bin/cordova", 
+      // Path to a cordova project 
+      "cwd": "${workspaceRoot}/src-cordova",
+      "stopOnEntry": false,
+      "args": ["build", "android"]},
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Process",
+      "port": 5858
+    }
+  ]
+}
