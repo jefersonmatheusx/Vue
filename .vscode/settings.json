@@ -1,3 +1,14 @@
 {
-  "javascript.implicitProjectConfig.checkJs": true
+    "javascript.implicitProjectConfig.checkJs": true,
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+   "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": true,
+      "semi": false
+    }
+  },
+  "vetur.experimental.templateInterpolationService": true
+
 }
