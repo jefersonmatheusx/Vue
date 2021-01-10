@@ -8,15 +8,15 @@
 - servidor local
 - entre outras vantagens
 
-## Fluxo inicial do Vue
-
-- vue create [nome_do_projeto]
+## Fluxo inicial do Vue - comandos básicos 
+ instalação (get start)
+- **vue create [nome_do_projeto]**
   - Usar preset ou usar uma configuração personalizada (adicionando plugins ) podendo salva-lo como preset e usar ele outra vez.
 - Desenvolvimento e Build
 - Adicionar Plugins
-  - vue add @vue/nome-plugin
+  -** vue add @vue/nome-plugin**
 - Rodar projeto 
-  - npm run serve
+  - **npm run serve**
 
 ## Estrutura
 
