@@ -8,6 +8,6 @@
       "semi": false
     }
   },
-  "vetur.experimental.templateInterpolationService": true
-
+  "vetur.experimental.templateInterpolationService": true,
+  "debug.javascript.usePreview": false
 }
