@@ -9,8 +9,8 @@ Os arquivos importantes são:
 
 1.  instale o vetur
 2.  instale o vue VS code Extension (da sarah.drasner)
-3.  Mova os arquivos desta pasta para a raiz do projeto (bem como o .vscode)
-4.  Nas configurações do vscode procure pelas configurações e modifique para:
+3.  Mova os arquivos desta pasta para a raiz do projeto (bem como o .vscode) ou substitua as partes que estão nos mesmos (para não perder suas configurações prévias)
+4.  Nas configurações do vscode procure pelas configurações e modifique para (também presentes em .vscode/settings.json:
     "debug.javascript.usePreview": false,
     "vetur.experimental.templateInterpolationService": true,
 
