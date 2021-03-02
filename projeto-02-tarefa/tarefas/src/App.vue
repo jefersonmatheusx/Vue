@@ -1,13 +1,30 @@
 <template>
   <div id="app">
     <h1>Tarefas</h1>
+    <NewTask :tasks="tasks" @addTask="addTasks" />
+    <TaskGrid @taskDeleted="taskDeleted" :tasks="tasks" />
   </div>
 </template>
 
 <script>
 import TaskGrid from "@/components/TaskGrid";
+import NewTask from "@/components/NewTask";
 
 export default {
+  name: "App",
+  components: {
+    TaskGrid,
+    NewTask,
+  },
+  methods: {
+    addTasks($event) {
+      const exists = this.tasks.find((data) => data.name == $event.name);
+      !exists &&  this.tasks.push($event);
+    },
+    taskDeleted(i){
+      this.tasks.splice(i,1)
+    }
+  },
   data: () => ({
     tasks: [
       { name: "Lavar louça", pending: false },
