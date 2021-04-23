@@ -1,6 +1,7 @@
 <template>
-  <div class="task" :class="stateClass">
-    <span @click="$emit('taskDeleted',task)" class="close">x</span>
+  <div class="task" :class="stateClass"
+  @click="$emit('taskStateChanged',task)">
+    <span @click.stop="$emit('taskDeleted',task)" class="close">x</span> <!--@click.stop serve para que não propague o evento para o taskStateChanged pois ele iria tentar mudar o status de um item que já foi excluido  -->
     <p>{{ task.name }}</p>
   </div>
 </template>
